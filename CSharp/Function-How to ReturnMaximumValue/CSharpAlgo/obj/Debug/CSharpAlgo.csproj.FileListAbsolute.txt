@@ -1,7 +1,0 @@
-E:\Projects\CSharpAlgo\CSharpAlgo\obj\Debug\CSharpAlgo.csprojAssemblyReference.cache
-E:\Projects\CSharpAlgo\CSharpAlgo\obj\Debug\CSharpAlgo.csproj.CoreCompileInputs.cache
-E:\Projects\CSharpAlgo\CSharpAlgo\CSharpAlgo.exe.config
-E:\Projects\CSharpAlgo\CSharpAlgo\obj\Debug\CSharpAlgo.exe
-E:\Projects\CSharpAlgo\CSharpAlgo\obj\Debug\CSharpAlgo.pdb
-E:\Projects\CSharpAlgo\CSharpAlgo\CSharpAlgo.exe
-E:\Projects\CSharpAlgo\CSharpAlgo\CSharpAlgo.pdb

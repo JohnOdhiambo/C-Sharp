@@ -10,7 +10,7 @@ public class Test
         foreach(int num in oddNumbers)
         {
             if(num % 3 == 0){
-            	//Console.Write(num);
+            	Console.Write(num);
             	return;
             }
         }
@@ -18,7 +18,7 @@ public class Test
     
 	public static void Main()
 	{
-        //int[] array = { 1, 2, 3, 4, 5, 6 };
+        int[] array = { 1, 2, 3, 4, 5, 6 };
         Console.WriteLine(checkMax(oddNumbers));
 	}
 }

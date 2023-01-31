@@ -28,36 +28,36 @@ namespace CSharpBasics
 
             Console.WriteLine();
         }
-        //static void Main(string[] args)
-        //{
-        //    //Create a queque using a queue constructor; it will contain integers
-        //    Queue<int> queque = new Queue<int>();
+        static void Main(string[] args)
+        {
+            //Create a queque using a queue constructor; it will contain integers
+            Queue<int> queque = new Queue<int>();
 
-        //    queque.Enqueue(1);
-        //    queque.Enqueue(8);
-        //    queque.Enqueue(20);
-        //    queque.Enqueue(23);
+            queque.Enqueue(1);
+            queque.Enqueue(8);
+            queque.Enqueue(20);
+            queque.Enqueue(23);
 
-        //    //saved the removed number with a variable
-        //    int removeditem = queque.Dequeue();
-        //    Console.WriteLine(removeditem);
-        //    Console.WriteLine(queque.Dequeue());//remove the next item on the queue
-        //    Console.WriteLine(queque.Peek());//to access the next to be removed on the queue
+            //saved the removed number with a variable
+            int removeditem = queque.Dequeue();
+            Console.WriteLine(removeditem);
+            Console.WriteLine(queque.Dequeue());//remove the next item on the queue
+            Console.WriteLine(queque.Peek());//to access the next to be removed on the queue
 
-        //    Console.WriteLine(queque.Dequeue());
-        //    //To iterate through a queue
-        //    //int current;//variable to save dequeued item
-        //    //while (queque.TryDequeue(out current))
-        //    //{
-        //    //    Console.WriteLine(current);
-        //    //}
-        //    Console.WriteLine();
-        //    printBinary(5);
-        //    printBinary(-2);
-        //    printBinary(0);
-        //    printBinary(2);
-        //    printBinary(8);
-        //}
+            Console.WriteLine(queque.Dequeue());
+            //To iterate through a queue
+            int current;//variable to save dequeued item
+            //while (queque.TryDequeue(out current))
+            {
+                Console.WriteLine(current);
+            }
+            Console.WriteLine();
+            printBinary(5);
+            printBinary(-2);
+            printBinary(0);
+            printBinary(2);
+            printBinary(8);
+        }
 
     }
 }

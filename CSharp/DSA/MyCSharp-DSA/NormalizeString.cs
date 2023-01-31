@@ -9,9 +9,9 @@ namespace CSharpBasics
         public string normalizeString(String input)
         {
             //Before normalizing 
-            //var lowercased = input.ToLower();
-            //var trimmed = lowercased.Trim();
-            //return trimmed.Replace(",", "");
+            var lowercased = input.ToLower();
+            var trimmed = lowercased.Trim();
+            return trimmed.Replace(",", "");
 
             //After normalizing to one statement
             return input.ToLower().Trim().Replace(",", "");
@@ -97,33 +97,33 @@ namespace CSharpBasics
 
             }
         }
-        //static void Main(string[] args)
-        //{
-        //    //    String input = "HeLLo";
-        //    //    Console.WriteLine(IsAtEvenIndex(input, 'l'));
-        //    //    Console.WriteLine(IsAtEvenIndex(input, 'L'));
-        //    //    Console.WriteLine(IsAtEvenIndex(input, 'T'));
-        //    //    Console.WriteLine(IsAtEvenIndex("", 'H'));
-        //    //    Console.WriteLine(IsAtEvenIndex(null, 'L'));
+        static void Main(string[] args)
+        {
+                String input = "HeLLo";
+                Console.WriteLine(IsAtEvenIndex(input, 'l'));
+                Console.WriteLine(IsAtEvenIndex(input, 'L'));
+                Console.WriteLine(IsAtEvenIndex(input, 'T'));
+                Console.WriteLine(IsAtEvenIndex("", 'H'));
+                Console.WriteLine(IsAtEvenIndex(null, 'L'));
 
-        //    //    //Reverse each word
-        //    //    Console.WriteLine("Reverse each word");
-        //    //    Console.WriteLine(Reverse("Hello World"));
-        //    //    Console.WriteLine(Reverse("Hello"));
-        //    //    Console.WriteLine(Reverse("tacos"));
-        //    //    Console.WriteLine(Reverse(null));
+            //    //Reverse each word
+                Console.WriteLine("Reverse each word");
+                Console.WriteLine(Reverse("Hello World"));
+                Console.WriteLine(Reverse("Hello"));
+                Console.WriteLine(Reverse("tacos"));
+                Console.WriteLine(Reverse(null));
 
-        //    //    //Reverse each word in a sentence
-        //    //    Console.WriteLine("Reverse each word in a sentence");
-        //    //    Console.WriteLine(ReverseEachWord("Jay is a world class footballer"));
-        //    //    Console.WriteLine(ReverseEachWord(null));
-        //    //    Console.WriteLine(ReverseEachWord("Racer Racer Madam"));
-        //    //    Console.WriteLine(ReverseEachWord("what are preparing for today"));
-        //    int[] arr = { 1, 2, 3, 4, 5, 6 };
-        //    Console.WriteLine("Reversed Array");
-        //    ReversePlace(arr);
-        //    ReversePlace(arr);//Reverse of the reverse array
-        //    Array.ForEach(arr, Console.WriteLine);
-        //}
+                //Reverse each word in a sentence
+                Console.WriteLine("Reverse each word in a sentence");
+                Console.WriteLine(ReverseEachWord("Jay is a world class footballer"));
+                Console.WriteLine(ReverseEachWord(null));
+                Console.WriteLine(ReverseEachWord("Racer Racer Madam"));
+               Console.WriteLine(ReverseEachWord("what are preparing for today"));
+            int[] arr = { 1, 2, 3, 4, 5, 6 };
+            Console.WriteLine("Reversed Array");
+            ReversePlace(arr);
+            ReversePlace(arr);//Reverse of the reverse array
+            Array.ForEach(arr, Console.WriteLine);
+        }
     }
 }

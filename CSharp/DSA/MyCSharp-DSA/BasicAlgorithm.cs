@@ -21,12 +21,12 @@ namespace CSharpBasics
 
             return max;
         }
-        //static void Main(string[] args)
-        //{
-        //    BasicAlgorithm ba = new BasicAlgorithm();
-        //    int result = ba.findMaximum2(20,4,13);
-        //    Console.WriteLine("The maximum number is " + result);
-        //}
+        static void Main(string[] args)
+        {
+            BasicAlgorithm ba = new BasicAlgorithm();
+            int result = ba.findMaximum2(20,4,13);
+            Console.WriteLine("The maximum number is " + result);
+        }
 
     }
 }

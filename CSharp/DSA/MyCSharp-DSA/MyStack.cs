@@ -53,34 +53,34 @@ namespace CSharpBasics
             }
 
         }
-        //static void Main(string[] args)
-        //{
-        //    Stack<string> stack = new Stack<string>();
+        static void Main(string[] args)
+        {
+            Stack<string> stack = new Stack<string>();
 
-        //    Console.WriteLine("Start Main");
-        //    stack.Push("Main");//Starts with the main method
-        //    Console.WriteLine("Start ResponseBuilder");
-        //    stack.Push("ResponseBuilder");
-        //    Console.WriteLine("Start CallExternalService");
-        //    stack.Push("CallExternalService");
-        //    Console.WriteLine("END" + stack.Pop());
-        //    Console.WriteLine("Start ParseExternalData");
-        //    stack.Push("ParseExternalData");
-        //    Console.WriteLine("END" + stack.Pop());
-        //    Console.WriteLine("END" + stack.Pop());
-        //    Console.WriteLine("END" + stack.Pop());
+            Console.WriteLine("Start Main");
+            stack.Push("Main");//Starts with the main method
+            Console.WriteLine("Start ResponseBuilder");
+            stack.Push("ResponseBuilder");
+            Console.WriteLine("Start CallExternalService");
+            stack.Push("CallExternalService");
+            Console.WriteLine("END" + stack.Pop());
+            Console.WriteLine("Start ParseExternalData");
+            stack.Push("ParseExternalData");
+            Console.WriteLine("END" + stack.Pop());
+            Console.WriteLine("END" + stack.Pop());
+            Console.WriteLine("END" + stack.Pop());
 
 
-        //    int[] arr = new int[] {15, 8, 4, 10 };
-        //    int[] arr2 = new int[] { 2 };
-        //    int[] arr3 = new int[] { 2, 3 };
-        //    int[] arr4 = new int[] { };
+            int[] arr = new int[] {15, 8, 4, 10 };
+            int[] arr2 = new int[] { 2 };
+            int[] arr3 = new int[] { 2, 3 };
+            int[] arr4 = new int[] { };
 
-        //    printNextGreaterElement(arr);
-        //    printNextGreaterElement(arr2);
-        //    printNextGreaterElement(arr3);
-        //    printNextGreaterElement(arr4);
-        //}
+            printNextGreaterElement(arr);
+            printNextGreaterElement(arr2);
+            printNextGreaterElement(arr3);
+            printNextGreaterElement(arr4);
+        }
 
     }
 }

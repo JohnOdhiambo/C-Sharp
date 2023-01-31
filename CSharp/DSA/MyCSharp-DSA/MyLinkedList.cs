@@ -46,23 +46,23 @@ namespace CSharpBasics
             //Deletes the middle node
             prev.next = null;
         }
-        //static void Main(string[] args)
-        //{
-        //    MyLinkedList linkedList = new MyLinkedList();
-        //    Node firstNode = new Node(3);
-        //    Node secondNode = new Node(4);
-        //    Node thirdNode = new Node(5);
-        //    Node fourthNode = new Node(6);
+        static void Main(string[] args)
+        {
+            MyLinkedList linkedList = new MyLinkedList();
+            Node firstNode = new Node(3);
+            Node secondNode = new Node(4);
+            Node thirdNode = new Node(5);
+            Node fourthNode = new Node(6);
 
-        //    linkedList.head = firstNode;
-        //    firstNode.next = secondNode;
-        //    secondNode.next = thirdNode;
-        //    thirdNode.next = fourthNode;
+            linkedList.head = firstNode;
+            firstNode.next = secondNode;
+            secondNode.next = thirdNode;
+            thirdNode.next = fourthNode;
 
-        //    linkedList.displayContents();
-        //    linkedList.removeBackHalf();
-        //    Console.WriteLine();
-        //    linkedList.displayContents();
-        //}
+            linkedList.displayContents();
+            linkedList.removeBackHalf();
+            Console.WriteLine();
+            linkedList.displayContents();
+        }
     }
 }

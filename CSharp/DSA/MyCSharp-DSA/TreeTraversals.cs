@@ -53,43 +53,43 @@ namespace CSharpBasics
 
             }
         }
-        //static void Main(string[] args)
-        //{
-        //    //        4
-        //    //     1     3
-        //    //   8   9  6
-        //    Node rootNode = new Node();
-        //    rootNode.Data = 4;
+        static void Main(string[] args)
+        {
+            //        4
+            //     1     3
+            //   8   9  6
+            Node rootNode = new Node();
+            rootNode.Data = 4;
 
-        //    Node nodeOne = new Node();
-        //    nodeOne.Data = 1;
+            Node nodeOne = new Node();
+            nodeOne.Data = 1;
 
-        //    Node nodeThree = new Node();
-        //    nodeThree.Data = 3;
+            Node nodeThree = new Node();
+            nodeThree.Data = 3;
 
-        //    Node nodeEight = new Node();
-        //    nodeEight.Data = 8;
+            Node nodeEight = new Node();
+            nodeEight.Data = 8;
 
-        //    Node nodeNine = new Node();
-        //    nodeNine.Data = 9;
+            Node nodeNine = new Node();
+            nodeNine.Data = 9;
 
-        //    Node nodeSix = new Node();
-        //    nodeSix.Data = 6;
+            Node nodeSix = new Node();
+            nodeSix.Data = 6;
 
-        //    rootNode.Left = nodeOne;
-        //    rootNode.Right = nodeThree;
-        //    nodeOne.Left = nodeEight;
-        //    nodeOne.Right = nodeNine;
-        //    nodeThree.Left = nodeSix;
+            rootNode.Left = nodeOne;
+            rootNode.Right = nodeThree;
+            nodeOne.Left = nodeEight;
+            nodeOne.Right = nodeNine;
+            nodeThree.Left = nodeSix;
 
-        //    BinaryTree.preOrderTraversal(rootNode);
-        //    Console.WriteLine();
+            BinaryTree.preOrderTraversal(rootNode);
+            Console.WriteLine();
 
-        //    BinaryTree.inOrderTraversal(rootNode);
-        //    Console.WriteLine();
+            BinaryTree.inOrderTraversal(rootNode);
+            Console.WriteLine();
 
-        //    BinaryTree.postOrderTraversal(rootNode);
-        //    Console.WriteLine();
-        //}
+            BinaryTree.postOrderTraversal(rootNode);
+            Console.WriteLine();
+        }
     }
 }

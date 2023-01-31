@@ -37,21 +37,21 @@ namespace CSharpBasics
             return isValid;
         }
 
-        //static void Main(string [] args)
-        //{
-        //    Console.WriteLine(startWith("kamwana"));
+        static void Main(string [] args)
+        {
+            Console.WriteLine(startWith("kamwana"));
 
-        //    Console.WriteLine(ValidatePassword("Jaymantra1"));
+            Console.WriteLine(ValidatePassword("Jaymantra1"));
             
-        //    //Find maximum number
-        //    BasicAlgorithm bs = new BasicAlgorithm();
-        //    Console.WriteLine(bs.findMaximum2( 20, 4, 13));
+            //Find maximum number
+            BasicAlgorithm bs = new BasicAlgorithm();
+            Console.WriteLine(bs.findMaximum2( 20, 4, 13));
 
-        //    //Normalize string in one statement
-        //    NormalizeString ns = new NormalizeString();
-        //    Console.WriteLine(ns.normalizeString("Hello User, it's JAYJAY    "));
-        //    //Search for elements in a string
-        //    ns.ParseContents("Hello World");
-        //}
+            //Normalize string in one statement
+            NormalizeString ns = new NormalizeString();
+            Console.WriteLine(ns.normalizeString("Hello User, it's JAYJAY    "));
+            //Search for elements in a string
+            ns.ParseContents("Hello World");
+        }
     }
 }

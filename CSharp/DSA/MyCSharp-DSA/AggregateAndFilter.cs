@@ -29,13 +29,13 @@ namespace CSharpBasics
 
             return (int[])result.ToArray(typeof(int));
         }
-        //static void Main(string[] args)
-        //{
-        //    int[] arr1 = {-8, 2, 3, -9, 11, 20 };
-        //    int[] arr2 = { 0, -2, -9, -39, 39, 10, 7 };
+        static void Main(string[] args)
+        {
+            int[] arr1 = {-8, 2, 3, -9, 11, 20 };
+            int[] arr2 = { 0, -2, -9, -39, 39, 10, 7 };
 
-        //    int[] evenarray = FindEvenNums(arr1, arr2);
-        //    Array.ForEach(evenarray, Console.WriteLine);
-        //}
+            int[] evenarray = FindEvenNums(arr1, arr2);
+            Array.ForEach(evenarray, Console.WriteLine);
+        }
     }
 }
