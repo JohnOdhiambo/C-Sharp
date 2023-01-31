@@ -1,0 +1,9 @@
+E:\TestProjects\CSharpBasics\CSharpBasics\bin\Debug\net20\CSharpBasics.exe.config
+E:\TestProjects\CSharpBasics\CSharpBasics\bin\Debug\net20\CSharpBasics.exe
+E:\TestProjects\CSharpBasics\CSharpBasics\bin\Debug\net20\CSharpBasics.pdb
+E:\TestProjects\CSharpBasics\CSharpBasics\obj\Debug\net20\CSharpBasics.csprojAssemblyReference.cache
+E:\TestProjects\CSharpBasics\CSharpBasics\obj\Debug\net20\CSharpBasics.csproj.CoreCompileInputs.cache
+E:\TestProjects\CSharpBasics\CSharpBasics\obj\Debug\net20\CSharpBasics.AssemblyInfoInputs.cache
+E:\TestProjects\CSharpBasics\CSharpBasics\obj\Debug\net20\CSharpBasics.AssemblyInfo.cs
+E:\TestProjects\CSharpBasics\CSharpBasics\obj\Debug\net20\CSharpBasics.exe
+E:\TestProjects\CSharpBasics\CSharpBasics\obj\Debug\net20\CSharpBasics.pdb
