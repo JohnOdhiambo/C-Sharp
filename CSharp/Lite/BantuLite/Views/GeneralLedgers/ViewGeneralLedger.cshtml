@@ -1,0 +1,116 @@
+﻿@model GeneralLedger
+
+<section class="content-header">
+    <div class="col-md-12">
+        <h4>
+            General Ledger Details
+        </h4>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <button type="submit" onclick="location.href='@Url.Action("AllGeneralLedgers","GeneralLedgers")'" class="btn btn-danger" style="float: right" href="">&times;</button>
+        
+        <!-- left column -->
+        <div class="col-md-12">
+
+            <!-- table body -->
+            <div class="box box-primary">
+                <table class="table table-striped">
+                    <tbody>
+
+                        <tr>
+                            <th>Account ID</th>
+                            <td>@Model.AccountID</td>
+                            <th>Description</th>
+                            <td>@Model.Description</td>
+                        </tr>
+                        <tr>
+                            <th>Short Name</th>
+                            <td>@Model.ShortName</td>
+                            <th>Currency ID</th>
+                            <td>@Model.CurrencyID</td>
+                        </tr>
+                        <tr>
+                            <th>GL Account Type ID</th>
+                            <td>@Model.GLAccountTypeID</td>
+                            <th>GL Sub-Account Type ID</th>
+                            <td>@Model.GLSubAccountTypeID</td>
+                        </tr>
+                        <tr>
+                            <th>GL Category ID</th>
+                            <td>@Model.GLCateGoryID</td>
+                            <th>Posting Type ID</th>
+                            <td>@Model.PostingTypeID</td>
+                        </tr>
+                        <tr>
+                            <th>GL Class ID</th>
+                            <td>@Model.GLClassID</td>
+                            <th>Contra Account ID</th>
+                            <td>@Model.ContraAccountID</td>
+                        </tr>
+                        <tr>
+                            <th>Main GL AccountID</th>
+                            <td>@Model.MainGLAccountID</td>
+                            <th>Is Revaluate</th>
+                            <td>@Model.IsRevaluate</td>
+                        </tr>
+                        <tr>
+                            <th>Remarks</th>
+                            <td>@Model.Remarks</td>
+                            <th>GL Type GroupID</th>
+                            <td>@Model.GLTypeGroupID</td>
+                        </tr>
+                        <tr>
+                            <th>Clasification 1</th>
+                            <td>@Model.Clasification1</td>
+                            <th>Clasification 2</th>
+                            <td>@Model.Clasification2</td>
+                        </tr>
+                        <tr>
+                            <th>Clasification 3</th>
+                            <td>@Model.Clasification3</td>
+                            <th>Update Count</th>
+                            <td>@Model.UpdateCount</td>
+                        </tr>
+
+                        <tr>
+                            <th>Closed By</th>
+                            <td>@Model.ClosedBy</td>
+                            <th>Closed On</th>
+                            <td>@Model.ClosedOn</td>
+                        </tr>
+
+                        <tr>
+                            <th>Created By</th>
+                            <td>@Model.CreatedBy</td>
+                            <th>Created On</th>
+                            <td>@Model.CreatedOn</td>
+                        </tr>
+                        <tr>
+                            <th>Modified By</th>
+                            <td>@Model.ModifiedBy</td>
+                            <th>Modified On</th>
+                            <td>@Model.ModifiedOn</td>
+                        </tr>
+                        <tr>
+                            <th>Supervised By</th>
+                            <td>@Model.SupervisedBy</td>
+                            <th>Supervised On</th>
+                            <td>@Model.SupervisedOn</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- /tile body -->
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+@section Scripts {
+    <script src="~/Scripts/AllGeneralLedgers.js"></script>
+}
+

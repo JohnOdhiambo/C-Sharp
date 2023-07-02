@@ -1,0 +1,209 @@
+﻿@model GeneralLedger
+
+<div class="topPanel">
+    <h4>General Ledger</h4>
+</div>
+<div class="row">
+    
+    <div class="col-md-9">
+        <div class="x_panel">
+            <div class="x_title">               
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+                <br />
+                <form id="form1" class="form-horizontal form-label-left ml-2 mr-2" asp-controller="GeneralLedgers" asp-action="AddGeneralledger" method="post">
+                    <input value="12" asp-for="BankID" hidden/>
+                    <input value="0" asp-for="UpdateCount" hidden />
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-2">GL Account Number</label>
+                        <div class="col-md-5">
+                            <input type="text" asp-for="AccountID" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-2">Description</label>
+                        <div class="col-md-10 ">
+                            <input type="text" asp-for="Description" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <!--Shortname &Classification1 row-->
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 ">Short Name</label>
+                        <div class="col-md-4 ">
+                            <input type="text" asp-for="ShortName" class="form-control input-sm">                           
+                        </div>
+                        <label class="control-label col-md-2">Classification1</label>
+                        <div class="col-md-4">
+                            <select asp-for="Clasification1" class="form-control input-sm">
+                                <option></option>
+                                <option>Class one</option>
+                                <option>Class two</option>
+                                <option>Class three</option>
+                                <option>Class four</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--Classification2 & Classification3 row-->
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Classification2</label>
+                        <div class="col-md-4">
+                            <select asp-for="Clasification2" class="form-control input-sm">
+                                <option></option>
+                                <option>Class2a</option>
+                                <option>Class2b</option>
+                                <option>Class2c</option>
+                                <option>Class2d</option>
+                            </select>
+                        </div>
+                        <label class="control-label col-md-2">Classification3</label>
+                        <div class="col-md-4">
+                            <select asp-for="Clasification3" class="form-control input-sm">
+                                <option></option>
+                                <option>Cl3a</option>
+                                <option>Cl3b</option>
+                                <option>Cl3c</option>
+                                <option>Cl4d</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Currency ID</label>
+                        <div class="col-md-4">
+                            <select asp-for="CurrencyID" class="form-control input-sm">
+                                <option></option>
+                                <option>KSH</option>
+                                <option>UGX</option>
+                                <option>TSH</option>
+                                <option>GHS</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--GLType & GLSubTypeGroup row-->
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">GL Type</label>
+                        <div class="col-md-4">
+                            <select asp-for="GLAccountTypeID" class="select2_single form-control input-sm" tabindex="-1">
+                                <option></option>
+                                <option value="G1">GL 1</option>
+                                <option value="G2">GL 2</option>
+                                <option value="G3">GL 3</option>
+                                <option value="G4">GL 4</option>
+                                <option value="G5">GL 5</option>
+                                <option value="G6">GL 6</option>
+                                <option value="G7">GL 7</option>
+                                <option value="G8">GL 8</option>
+                                <option value="G9">GL 9</option>
+                            </select>
+                        </div>
+                        <label class="control-label col-md-2">GL Subtype</label>
+                        <div class="col-md-4">
+                            <select asp-for="GLTypeGroupID" class="select2_group form-control input-sm">
+                                <option></option>
+                                <option value="G1">GL 1</option>
+                                <option value="G1">GL 1</option>
+                                <optgroup label="GL 2">
+                                    <option value="G2">GL 2</option>
+                                    <option value="G2">GL 2</option>
+                                    <option value="G2">GL 2</option>
+                                    <option value="G2">GL 2</option>
+                                </optgroup>
+                                <optgroup label="GL 3">
+                                    <option value="G3">GL 3</option>
+                                    <option value="G3">GL 3</option>
+                                    <option value="G3">GL 3</option>
+                                    <option value="G3">GL 3</option>
+
+                                </optgroup>
+                                <optgroup label="GL 4">
+                                    <option value="G4">GL 4</option>
+                                    <option value="G4">GL 4</option>
+                                    <option value="G4">GL 4</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <!--GL SubType Group & GL Category-->
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">GL Subtype Group</label>
+                        <div class="col-md-4">
+                            <select asp-for="GLSubAccountTypeID" class="form-control input-sm">
+                                <option>-Select-</option>
+                                <option>SubType one</option>
+                                <option>SubType two</option>
+                                <option>SubType three</option>
+                                <option>SubType four</option>
+                            </select>
+                        </div>
+
+                        <label class="control-label col-md-2">GL Category</label>
+                        <div class="col-md-4">
+                            <select asp-for="GLCateGoryID" class="form-control input-sm">
+                                <option>Others</option>
+                                <option>Category One</option>
+                                <option>Category Two</option>
+                                <option>Category Three</option>
+                                <option>Category Four</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--PostingType & GLClass-->
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Posting Type</label>
+                        <div class="col-md-4">
+                            <select asp-for="PostingTypeID" class="form-control input-sm">
+                                <option>-Select-</option>
+                                <option>Posting TypeOne</option>
+                                <option>Posting TypeTwo</option>
+                                <option>Posting TypeThree</option>
+                                <option>Posting TypeFour</option>
+                            </select>
+                        </div>
+                        <label class="control-label col-md-2">GL Class</label>
+                        <div class="col-md-4">
+                            <select asp-for="GLClassID" class="form-control input-sm">
+                                <option>-Select-</option>
+                                <option>GLClass One</option>
+                                <option>GLClass Two</option>
+                                <option>GLClass Three</option>
+                                <option>GLClass Four</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Contra Account Number</label>
+                        <div class="col-md-4">
+                            <input type="text" asp-for="ContraAccountID" class="form-control input-sm">
+                        </div>
+                        <label class="control-label col-md-2"> Do Revaluation</label>
+                        <div class="col-md-4">
+                           <input type="checkbox" asp-for="IsRevaluate">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Remarks</label>
+                        <div class="col-md-10">
+                            <textarea asp-for="Remarks" id="content" rows="3" class="form-control">
+                            </textarea>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group row">
+            <div class="col-md-6 offset-md-3 mt-5">
+                <button form ="form1" type="submit" class="btn btn-success mb-2 col-md-12">Save</button>
+                <button type="submit" onclick="location.href='@Url.Action("AllGeneralLedgers","GeneralLedgers")'" class="btn btn-dark mb-2 col-md-12">Abort</button>
+            </div>
+        </div>
+    </div>
+</div>
+

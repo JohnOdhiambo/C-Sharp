@@ -1,0 +1,93 @@
+﻿using BantuLite.Models;
+using BantuLite.Service;
+using BantuLite.Utilities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace BantuLite.Controllers
+{
+    public class GeneralLedgersController : Controller
+    {
+        private readonly IGLService gLService;
+
+        public GeneralLedgersController(IGLService gLService)
+        {
+            this.gLService = gLService;
+        }
+
+        public IActionResult AllGeneralLedgers()
+        {
+            //var result = gLService.GetGeneralLedgers(1, 500, "");
+            //return View("GeneralLedgers", result.Item1);
+            return View("GeneralLedgers");
+        }
+
+        [HttpPost]
+        public JsonResult GeneralLedgersList()
+        {
+            try
+            {
+                var draw = HttpContext.Request.Form["draw"].FirstOrDefault();
+                // Skiping number of Rows count  
+                var start = Request.Form["start"].FirstOrDefault();
+                // Paging Length 10,20  
+                var length = Request.Form["length"].FirstOrDefault();
+
+                // Search Value from (Search box)   
+                var searchValue = Request.Form["search[value]"].FirstOrDefault();
+
+                //Paging Size (10,20,50,100)  
+                int pageSize = length != null ? Convert.ToInt32(length) : 0;
+                int skip = start != null ? Convert.ToInt32(start) : 0;
+
+                //Changes Made
+                //recordsTotal = UtilityService.GetUsersCount(searchValue);
+                var result = gLService.GetGeneralLedgers(skip, int.Parse(length), searchValue);
+                //var result = systemService.GetClients(2, 25,"");
+                var data = result.Item1;
+                int recordsTotal = result.Item2;
+                //Returning Json Data  
+                return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AddGeneralLedger()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddGeneralLedger(GeneralLedger generalLedger)
+        {
+            var branchDetails = ByteConvertHelper.Bytes2Object<SystemBranchDetails>(HttpContext.Session.Get("BRANCHDETAILS"));
+            generalLedger.CreatedBy = branchDetails.Operator;
+            var gl = gLService.AddGeneralLedger(generalLedger);
+            return RedirectToAction("AllGeneralLedgers");
+        }
+
+        [HttpGet]
+        public IActionResult EditGeneralLedger(string AccountID)
+        {
+            var gl = gLService.GetGeneralLedger(AccountID);
+            return View(gl);
+        }
+        [HttpGet]
+        public IActionResult ViewGeneralLedger(string AccountID)
+        {
+            var gl = gLService.GetGeneralLedger(AccountID);
+            return View(gl);
+        }
+
+    }
+}

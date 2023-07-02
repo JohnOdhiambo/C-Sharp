@@ -1,0 +1,216 @@
+﻿@model Login
+
+@{
+    Layout = null;
+};
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>Bantu Lite</title>
+
+
+
+
+    <!----------------------------------------------- LOGIN-------------------------------------------------->
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="~/css/login4/style.css">
+
+
+</head>
+
+<body background="/images/dollar.jpg">
+    <div class="container body ">
+        <div class="main_container ">
+            <div class="col-md-3 left_col">
+                <div class="left_col">
+
+                    @*<div class="clearfix"></div>*@
+
+                </div>
+            </div>
+
+            <div class="right_col" role="main">
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+                <!------ Include the above in your HEAD tag ---------->
+
+                <div class="container register animated bounceInDown">
+                    <div class="row">
+                        <div class="col-md-3 register-left">
+                            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                            <h3>Ngao Credit</h3>
+                            <p>You are 30 seconds away from earning your own money!</p>
+                            <h6>2021 Extra Inch Technologies Limited</h6><br />
+                        </div>
+                        <div class="col-md-9 register-right">
+                            <div class="row justify-content-end" style=" margin-right: 30px; margin-top: 10px">
+                                <div class="col-sm-4">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-append">
+                                            <label class="input-group-text" for="inputGroupSelect02">Theme</label>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect02">
+                                            <option selected>Choose...</option>
+                                            <option value="1">Dark</option>
+                                            <option value="2">Light</option>
+                                            <option value="3">Grayscale</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="input-group mb-4">
+                                        <select class="custom-select" id="inputGroupSelect02">
+                                            <option selected>Choose...</option>
+                                            <option value="1">English</option>
+                                            <option value="2">French</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <label class="input-group-text" for="inputGroupSelect02">Language</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="col-md-6">
+                                        <h3 class="register-heading">Bantu Lite</h3>
+                                    </div>
+
+                                    <div class="row register-form" id="regForm">
+                                        @*<div class="row">
+                                            <div class="col-md-6">*@
+                                        <form id="login_form" class="col-md-6" asp-controller="Security" asp-action="Login">
+                                            <div class="form-group">
+                                                <select id="selectBranch" class="form-control col-md-12" asp-for="BranchID" asp-items="@ViewBag.Branches" required>
+                                                    <option value="">--Select Branch--</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                @{
+                                                    //foreach (var Dates in @ViewBag.Date)
+                                                    //{
+                                                    <input type="datetime" class="form-control col-md-12" placeholder="System Date" id="soddate" asp-for="LoginDate" value="@ViewBag.Date" readonly />
+                                                    @*}*@
+                                                }
+
+                                            </div>
+                                            <div class="form-group">
+                                                <input id="userName" onkeydown="upperCaseF(this)" type="text" minlength="4" maxlength="10" required asp-for="OperatorID" class="form-control" placeholder="Username *" value="" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input id="passWord" type="password" asp-for="Password" required class="form-control" placeholder="Password *" value="" />
+                                            </div>
+
+                                            <input id="login" type="submit" class="btnRegister" value="Sign In" />
+
+                                        </form>
+                                        @*</div>
+
+                                            </div>*@
+
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        @*<div class="row justify-content-center"></div>*@
+                    </div>
+                    <p class="float-right" style="color:white;">Ver. 1.0 - Beta</p>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+
+
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <script src="~/js/login4/bgimage.js"></script>
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+        @*<script type="text/javascript">
+                $(document).ready(function () {
+                    $("#selectBranch").on("change", function () {
+                        var br = $('#selectBranch').val();
+                        $.ajax(
+                            {
+                                type: "POST",
+                                url: "Login/GetSOD",
+                                data: { br = br }
+                            });
+
+                    });
+                });
+            </script>*@
+        <script>
+            $("#selectBranch").on("change", function () {
+                $.ajax({
+                    url: "GetBranchDate",
+                    type: "POST",
+                    data: { branchId: $("#selectBranch").val() },
+                    success: function (d) {
+                        $('#soddate').val(d);
+                    },
+                    error: function (jqXHR, exception) {
+                        var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                        $('#post').html(msg);
+                    }
+                });
+            });
+
+
+            function upperCaseF(a) {
+                setTimeout(function () {
+                    a.value = a.value.toUpperCase();
+                }, 1);
+            }
+        </script>
+</body>
+
+</html>
+
+
+
+
+
+
+

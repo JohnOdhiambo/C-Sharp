@@ -1,0 +1,132 @@
+﻿$(document).ready(function () {
+    //$("#myControls").attr('hidden', true);
+    //$("#btnedit").disabled = true;
+    //$("#btndelete").disabled = true;
+    //$("#btnclose").disabled = true;
+
+    $("#_tblGeneralLedgers").DataTable({
+        "processing": false,
+        "serverSide": true,
+        "filter": true,
+        "orderMulti": false,
+        "responsive": true,
+        "language": {
+            "search": "Search by Ledger Name:"
+        },
+        "ajax": {
+            "url": "/GeneralLedgers/GeneralLedgersList",
+            "type": "POST",
+            "datatype": "json"
+        },
+        "columns": [
+            { "data": "accountID", "name": "AccountID", "autoWidth": true },
+            { "data": "description", "name": "Description", "autoWidth": true },
+            { "data": "shortName", "name": "ShortName", "autoWidth": true },
+            { "data": "currencyID", "name": "Currency", "autoWidth": true }
+        ]
+    });
+    // Setup - add a text input to each header cell 
+    $('#_tblGeneralLedgers thead th').each(function () {
+        var title = $('#_tblGeneralLedgers thead th').eq($(this).index()).text();
+        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+    });
+    // DataTable
+    var table = $('#_tblGeneralLedgers').DataTable();
+    // Apply the search
+    table.columns().eq(0).each(function (colIdx) {
+        $('input', table.column(colIdx).header())
+            .on('keyup change', function () {
+                table.column(colIdx).search(this.value).draw();
+            });
+    });
+
+    //$("#_tblGeneralLedgers").click(function () {
+    //    alert("Im here")
+    //    _tblGeneralLedgers.row(this).edit({
+    //        buttons: [
+    //            { label: 'Cancel', fn: function () { this.close(); } },
+    //            'Edit'
+    //        ]
+    //    });
+    //});
+    // code to read selected table row cell data (values).
+    //$("#myTable").on('click', '.btnSelect', function () {
+    //    // get the current row
+    //    var currentRow = $(this).closest("tr");
+
+    //    var col1 = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+    //    var col2 = currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+    //    var col3 = currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+    //    var data = col1 + "\n" + col2 + "\n" + col3;
+
+    //    alert(data);
+    //});
+
+/*    var table = $('#_tblGeneralLedgers').DataTable();*/
+
+    $('#_tblGeneralLedgers tbody').on('click', 'tr', function () {
+        $("#_tblGeneralLedgers tbody tr").removeClass('row_selected');
+        $(this).addClass('row_selected');
+        //Get the hidden Attributes
+        $("#myControls").removeAttr('hidden');     
+
+        var currentRow = $(this).closest("tr");
+
+        var col1 = currentRow.find("td:eq(0)").text();
+      
+        var link = document.getElementById("btnedit");
+        link.setAttribute('href', "/GeneralLedgers/EditGeneralLedger?AccountID=" + col1 +"");
+
+        var link = document.getElementById("btnview");
+        link.setAttribute('href', "/GeneralLedgers/ViewGeneralLedger?AccountID=" + col1 + "");
+
+        var link = document.getElementById("btndisable");
+        link.setAttribute('href', "/GeneralLedgers/DisableGL?AccountID=" + col1 + "");
+    });
+});
+
+//function btn_add() {
+//    $.modalOpen({
+//        id: "Form",
+//        title: "Create role",
+//        url: "/RoleAuthorize/Form",
+//        width: "550px",
+//        height: "570px",
+//        btn: null
+//    });
+//}
+//function btn_edit() {
+//    var keyValue = $("#_tblGeneralLedgers").jqGridRowValue().RowID;
+//    var keyRole = $("#_tblGeneralLedgers").jqGridRowValue().RoleID;
+//    $.modalOpen({
+//        id: "Form",
+//        title: "Edit Role",
+//        url: "/RoleAuthorize/Form?keyValue=" + keyValue + "&RoleID=" + keyRole,
+//        width: "550px",
+//        height: "570px",
+//        btn: null
+//    });
+//}
+
+//function btn_delete() {
+//    $.deleteForm({
+//        url: "/RoleAuthorize/DeleteForm",
+//        param: { keyValue: $("#_tblGeneralLedgers").jqGridRowValue().RowID },
+//        success: function () {
+//            $.currentWindow().$("#_tblGeneralLedgers").trigger("reloadGrid");
+//        }
+//    })
+//}
+
+//function btn_details() {
+//    var keyValue = $("#_tblGeneralLedgers").jqGridRowValue().RowID;
+//    var keyRole = $("#_tblGeneralLedgers").jqGridRowValue().RoleID;
+//    $.modalOpen({
+//        id: "Details",
+//        title: "Role Details",
+//        url: "/RoleAuthorize/Info?keyValue=" + keyValue + "&RoleID=" + keyRole,
+//        width: "550px",
+//        height: "570px",
+//        btn: null,
+//    });
+//}

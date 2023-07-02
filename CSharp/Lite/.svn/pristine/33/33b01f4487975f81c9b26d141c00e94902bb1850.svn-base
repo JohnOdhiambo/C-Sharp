@@ -1,0 +1,44 @@
+{
+  "ConnectionStrings": {
+    //"SQLServerConn": "Server=DESKTOP-U3SF78G;uid=Bantu;pwd=bantu;database=MfukoFreshy;",
+    "CBS": "Server=ALLANLABZ\\SQLDEV;Database=Latest_Test;user=sa;password=pa$5@SqlDev;"
+  },
+  "NlogConnection": {
+    "DbProvider": "sqlserver",
+    "DbHost": "SQL5063.site4now.net",
+    "Database": "DB_A654A1_Finance",
+    "User": "DB_A654A1_Finance_admin",
+    "Password": "Masangala@89"
+  },
+  "AppIdentitySettings": {
+    "User": {
+      "RequireUniqueEmail": true
+    },
+    "Password": {
+      "RequiredLength": 6,
+      "RequireLowercase": true,
+      "RequireUppercase": true,
+      "RequireDigit": true,
+      "RequireNonAlphanumeric": true
+    },
+    "ForexExchange": {
+      "apiKey": "a62dc8f268ab914256b3",
+      "BaseUrl": "https://free.currconv.com/api/v7/convert?",
+      "CountryUrl": "https://free.currconv.com/api/v7/countries?",
+      "BaseCurrencySet": false
+    },
+    "Lockout": {
+      "AllowedForNewUsers": true,
+      "DefaultLockoutTimeSpanInMins": 30,
+      "MaxFailedAccessAttempts": 5
+    }
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}

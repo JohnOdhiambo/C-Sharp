@@ -1,0 +1,57 @@
+﻿using BantuLite.Models;
+using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace BantuLite.Service
+{
+    public class GLService : IGLService
+    {
+        static IDbConnection _dbcon = DbCon.Connection();
+
+        public Tuple<List<GeneralLedger>, int> GetGeneralLedgers(int? page, int? limit, string filterQuery)
+        {
+            if (page == 0)
+            {
+                page = 1;
+            }
+
+            List<GeneralLedger> list = new List<GeneralLedger>();
+            var RecCount = 0;
+
+            using (var multi = _dbcon.QueryMultiple("p_GetGeneralLedgers",
+                new
+                {
+                    Page = page,
+                    Rows = limit,
+                    FilterQuery = filterQuery
+                }, commandType: CommandType.StoredProcedure))
+            {
+                RecCount = multi.Read<Int32>().First();
+                list = multi.Read<GeneralLedger>().ToList();
+            }
+
+
+            return new Tuple<List<GeneralLedger>, int>(list.ToList(), RecCount);
+
+        }
+
+        public GeneralLedger GetGeneralLedger(string accountID)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@AccountID", accountID);
+
+            var result = _dbcon.Query<GeneralLedger>(
+                "p_GetGeneralLedger",
+                queryParameters,
+                commandType: CommandType.StoredProcedure);
+
+            return result.FirstOrDefault();
+        }
+    }
+
+
+}

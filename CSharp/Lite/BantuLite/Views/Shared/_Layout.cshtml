@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/Layout/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/Layout/dist/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/lib/Layout/dist/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/lib/Layout/dist/css/AdminLTE.min.css">
+    <!--Modal Row Sytle-->
+    <link href="~/css/rowmodal.css" rel="stylesheet" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/lib/Layout/dist/css/skins/all-skins.min.css">
+    <link href="~/lib/Layout/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <script src="~/lib/Layout/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    @*<script src="~/lib/Layout/jquery/jquery.min.js"></script>*@
+    <!-- Bootstrap 3.3.6 -->
+    <script src="~/lib/Layout/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Slimscroll -->
+
+    <script src="~/lib/Layout/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/Layout/plugins/datatables/dataTables.bootstrap.js"></script>
+    <!--http://aimodu.org:7777/admin/index_iframe.html?q=audio&search=#-->
+    <style type="text/css">
+        html {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    @*<div class="container">
+        <main role="main" class="pb-3">
+        </main>
+        </div>*@
+    @RenderBody()
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    @*<script src="~/lib/Layout/jquery/jquery.min.js"></script>*@
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    @RenderSection("Scripts", required: false)
+    @*<script src="~/lib/Layout/plugins/datatables/dataTables.bootstrap.js"></script>
+        <script src="~/lib/Layout/plugins/datatables/jquery.dataTables.min.js"></script>*@
+</body>
+</html>

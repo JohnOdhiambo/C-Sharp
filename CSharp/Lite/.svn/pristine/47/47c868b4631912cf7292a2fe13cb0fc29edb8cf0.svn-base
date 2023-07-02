@@ -1,0 +1,95 @@
+﻿using BantuLite.Models;
+using BantuLite.Service;
+using BantuLite.Utilities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace BantuLite.Controllers
+{
+    public class SecurityController : Controller
+    {
+        private readonly ISecurityService securityService;
+
+        public SecurityController(ISecurityService securityService)
+        {
+            this.securityService = securityService;
+        }
+
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            var branches = securityService.GetSystemBranches("12");
+            var branches2 = securityService.GetSystemBranchStatus();
+            var dValue = branches2.Where(c => c.OurBranchID == "00").Select(x => x.SODDate).FirstOrDefault();
+
+            ViewBag.Branches = new SelectList(branches, "OurBranchID", "BranchName");
+            ViewBag.Date = dValue;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(Login model)
+        {
+            var pass = Utilities.Utilities.EncryptText(model.Password);
+            var dbPass = securityService.VerifyUserDetails(model.OperatorID, model.Password);
+            if (pass == dbPass)
+            {
+                var branches = securityService.GetSystemBranches("12");
+                var currentBranch = branches.Where(x => x.OurBranchID == model.BranchID).FirstOrDefault().BranchName;
+                SystemBranchDetails smodel = new SystemBranchDetails
+                {
+                    Branch = currentBranch,
+                    SystemDate = model.LoginDate,
+                    Operator = model.OperatorID
+                };
+                TempData["BranchDetails"] = JsonConvert.SerializeObject(smodel);
+
+                HttpContext.Session.Set("BRANCHDETAILS", ByteConvertHelper.Object2Bytes(smodel));
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+
+        public string GetSOD(string br)
+        {
+            var sodDate = securityService.GetSODDate(br);
+
+            var date = sodDate.Select(d => d.SODDate).ToList().FirstOrDefault();
+
+            ViewBag.Date = date;
+
+            return date;
+        }
+
+        [HttpPost]
+        public string GetBranchDate(string branchId)
+        {
+            var sodDate = securityService.GetSODDate(branchId);
+
+            var date = sodDate.Select(d => d.SODDate).ToList().FirstOrDefault();
+
+            ViewBag.Date = date;
+
+            return date;
+        }
+        [HttpGet]
+        public IActionResult SignOut()
+        {
+            HttpContext.Session.Clear();
+            TempData["Success"] = "Successfully signed out";
+            return RedirectToAction("Login");
+        }
+    }
+}

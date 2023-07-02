@@ -1,0 +1,94 @@
+﻿@*@model IEnumerable<GeneralLedger>*@
+
+
+<section class="content-header">
+	<h1>
+		@Localizer["General Ledgers"]
+	</h1>
+    @*<ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Customers</a></li>
+            <li class="active">All</li>
+        </ol>*@
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    
+                    <h4><i class="icon fa fa-check"></i>@Localizer["Success!"] </h4>
+                    @TempData["Success"]
+                </div>
+            }
+        <div class="box">
+            <div class="box-header" >               
+                <div class="row">
+                    <div class="col-md-2">
+						<a asp-controller="GeneralLedgers" asp-action="AddGeneralLedger" class="btn btn-primary"><i class="fa fa-plus"></i>@Localizer["New General Ledger"]</a>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="myControls" hidden>
+                            <a class="btn btn-info" href="" id="btnedit"><i class="fa fa-pencil-square-o"></i>@Localizer["Edit GL"]</a>
+                            <a class="btn btn-primary" href="" id="btnview"><i class="fa fa-eye"></i>@Localizer["View GL"]</a>
+                            <a class="btn btn-info" href="" id="btndisable"><i class="fa fa-trash"></i>@Localizer["Disable GL"]</a>
+
+                            <button form="block" type="submit" class="btn btn-danger ml-1 mr-1" style="margin-right:3px;" title="Block User" 
+                                    onclick="return confirm('Are you sure you want to block the user ?');"><i class="fa fa-ban"></i>Block</button>
+                            <a class="btn btn-danger" style="float: right" href="" id="btnclose">&times;</a>
+
+                        </div>
+                    </div>
+                </div>
+                @*<div class="form-group col-md-1">
+                   
+                    
+                </div>*@
+                                                   
+            </div>
+            <!-- /.box-header -->
+            
+            <div class="box-body">
+                <table id="_tblGeneralLedgers" class="table table-bordered">
+                    <thead>
+                        <tr>
+							<th>@Localizer["AccountID"]</th>
+							<th>@Localizer["Description"]</th>
+							<th>@Localizer["ShortName"]</th>
+							<th>@Localizer["Currency ID"] </th>
+                        </tr>
+                    </thead>
+                    @*<tbody>
+                    @foreach (var ledger in Model)
+                    {
+                        <tr>
+                            <td>@ledger.AccountID</td>
+                            <td>@ledger.Description</td>
+                            <td>@ledger.ShortName</td>
+                            <td>@ledger.CurrencyID</td>
+                            <td>@ledger.GLAccountTypeID</td>
+                            <td>@ledger.GLCategoryID</td>
+                        </tr>
+                    }
+                </tbody>*@
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+@*<script src="~/Scripts/AllGeneralLedgers.js"></script>*@
+@*<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script> 
+<script type="text/javascript" ssrc="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>*@
+
+@section Scripts {
+    <script src="~/Scripts/AllGeneralLedgers.js"></script>
+    
+}

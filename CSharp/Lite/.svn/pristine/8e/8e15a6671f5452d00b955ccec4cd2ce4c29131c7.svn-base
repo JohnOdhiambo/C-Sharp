@@ -1,0 +1,3 @@
+﻿tr.row_selected td {
+    background-color: ButtonHighlight;
+}
